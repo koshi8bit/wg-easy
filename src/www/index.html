@@ -309,7 +309,7 @@
                         'hover:bg-red-800 dark:hover:bg-red-800 hover:text-white dark:hover:text-white': client.downloadableConfig,
                         'is-disabled': !client.downloadableConfig
                       }"
-                      :title="!client.downloadableConfig ? $t('noPrivKey') : $t('showQR')"
+                      :title="!client.downloadableConfig ? $t('noPrivKey') : $t('showConfig')"
                       @click="conff = `./api/wireguard/client/${client.id}/configurationText`">
                       <svg class="w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -396,7 +396,7 @@
           </div>
         </div>
 
-        <!-- Conf -->
+        <!-- Conff -->
         <div v-if="conff">
           <div class="bg-black bg-opacity-50 fixed top-0 right-0 left-0 bottom-0 flex items-center justify-center z-20">
             <div class="bg-white rounded-md shadow-lg relative p-8">
@@ -407,7 +407,8 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-              <p>tratata</p>
+              <p>{{$conff}}</p>
+              <p>{{$conff}}</p>
             </div>
           </div>
         </div>
