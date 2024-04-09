@@ -64,6 +64,7 @@ new Vue({
     clientEditAddress: null,
     clientEditAddressId: null,
     qrcode: null,
+    conff: null,
 
     currentRelease: null,
     latestRelease: null,

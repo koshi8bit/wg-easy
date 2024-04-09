@@ -12,7 +12,7 @@ cd ~/test-wg/wg-easy && docker build -t koshi8bit/wg-easy-pro . && docker push k
 
 ## local
 ```bash
-cd ~/test-wg/wg-easy && docker build -t wg-easy-pro2 . && cd /home/services/vpn-wg-test && ./d.sh r && docker compose logs wg-easy
+cd ~/test-wg/wg-easy && docker build -t wg-easy-pro-test . && cd /home/services/vpn-wg-test && ./d.sh r && docker compose logs wg-easy
 
 ```
 
