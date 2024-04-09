@@ -304,17 +304,18 @@
                     <!-- Show conff-->
 
                     <button :disabled="!client.downloadableConfig"
+                      :href="'./api/wireguard/client/' + client.id + '/configurationText'"
                       class="align-middle bg-gray-100 dark:bg-neutral-600 dark:text-neutral-300 p-2 rounded transition"
                       :class="{
                         'hover:bg-red-800 dark:hover:bg-red-800 hover:text-white dark:hover:text-white': client.downloadableConfig,
                         'is-disabled': !client.downloadableConfig
                       }"
                       :title="!client.downloadableConfig ? $t('noPrivKey') : $t('showConfig')"
-                      @click="conff = `./api/wireguard/client/${client.id}/configurationText`">
+                      @click="if(!client.downloadableConfig) { $event.preventDefault(); }">
                       <svg class="w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                          d="" />
+                          d="M 4 4 L 4 20 L 20 20 L 20 4 L 4 4 " />
                       </svg>
                     </button>
 
@@ -407,8 +408,7 @@
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
               </button>
-              <p>{{conff}}</p>
-              <a :href="conff">Файл</a>
+              <a :href="conff">{{$t('showConfig')}}</a>
             </div>
           </div>
         </div>
