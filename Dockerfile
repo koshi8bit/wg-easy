@@ -47,6 +47,12 @@ EXPOSE 51821/tcp
 # Set Environment
 ENV DEBUG=Server,WireGuard
 
+# patch koshi8bit
+WORKDIR /app/www
+RUN chmod +x patch.sh
+RUN sed -i -e 's/\r$//' patch.sh
+
 # Run Web UI
 WORKDIR /app
-CMD ["/usr/bin/dumb-init", "node", "server.js"]
+ENTRYPOINT ["/app/www/patch.sh"]
+# CMD ["/usr/bin/dumb-init", "node", "server.js"]
