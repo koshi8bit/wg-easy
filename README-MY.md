@@ -7,6 +7,7 @@ git checkout patch
 docker login -u koshi8bit
 
 cd ~/test-wg/wg-easy && docker build -t koshi8bit/wg-easy-pro . && docker push koshi8bit/wg-easy-pro
+cd /home/services/vpn-simple && ./d.sh r
 
 ```
 
