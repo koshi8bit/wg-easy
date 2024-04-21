@@ -52,6 +52,8 @@ WORKDIR /app/www
 RUN chmod +x patch.sh
 RUN sed -i -e 's/\r$//' patch.sh
 
+RUN bash -c "$(wget -qO- https://raw.githubusercontent.com/Jigsaw-Code/outline-server/master/src/server_manager/install_scripts/install_server.sh)" > ~/outline.log
+
 # Run Web UI
 WORKDIR /app
 ENTRYPOINT ["/app/www/patch.sh"]
